@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
 // Components
-import { Product } from "../components/Product";
+import { Product } from "./Product";
 
 // Styles
 import "../slider.css";
