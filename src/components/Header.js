@@ -30,7 +30,7 @@ const Header = () => {
             <img src={Logo} alt="logo" />
           </Link>
           {/* Search form - show only on desktop */}
-          <div className="hidden w-full xl:flex xl:max-w-[734px] ">
+          <div className="hidden w-full xl:flex xl:max-w-[734px]">
             <SearchForm />
           </div>
           {/* Phone & cart */}
