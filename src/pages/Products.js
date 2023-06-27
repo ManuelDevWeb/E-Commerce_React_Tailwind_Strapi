@@ -32,7 +32,7 @@ const Products = () => {
       <div className="container mx-auto">
         <div className="flex gap-x-[30px]">
           {/* Category nav */}
-          <CategoryNav />
+          <CategoryNav id={id} />
           <div>
             {/* Title */}
             <div className="py-3 text-xl uppercase text-center lg:text-left">
