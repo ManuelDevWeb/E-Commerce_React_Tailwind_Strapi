@@ -26,6 +26,9 @@ const ProductDetails = () => {
 
   const urlImage = data && data[0].attributes.image.data.attributes.url;
 
+  // Category title
+  const categoryTitle = data[0].attributes.categories.data[0].attributes.title;
+
   return (
     <div className="mb-16 pt-44 lg:pt-[30px] xl:pt-0">
       <div className="container mx-auto">
@@ -58,7 +61,7 @@ const ProductDetails = () => {
           </div>
         </div>
         {/* Related products */}
-        <RelatedProducts />
+        <RelatedProducts categoryTitle={categoryTitle} />
       </div>
     </div>
   );
