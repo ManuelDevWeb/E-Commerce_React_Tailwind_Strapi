@@ -9,7 +9,7 @@ import { Product } from "../components/Product";
 
 const Search = () => {
   const location = useLocation();
-  // Get numbers numbers of params in the query
+  // Get numbers of params in the query
   const searchParams = new URLSearchParams(location.search);
   // Get value of param query
   const searchTerm = searchParams.get("query");
@@ -20,7 +20,7 @@ const Search = () => {
   );
 
   return (
-    <div className="mb-[30px] pt-40 lg:pt-4 xl:pt-0">
+    <div className="mb-[30px] pt-36">
       <div className="container mx-auto">
         <div className="flex gap-x-[30px]">
           {/* Category nav */}

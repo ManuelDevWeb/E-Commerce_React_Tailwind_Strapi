@@ -30,7 +30,7 @@ const ProductDetails = () => {
   const categoryTitle = data[0].attributes.categories.data[0].attributes.title;
 
   return (
-    <div className="mb-16 pt-44 lg:pt-[30px] xl:pt-0">
+    <div className="mb-16 pt-44 lg:pt-36 ">
       <div className="container mx-auto">
         {/* Text */}
         <div className="flex flex-col lg:flex-row gap-[30px] mb-[30px]">
