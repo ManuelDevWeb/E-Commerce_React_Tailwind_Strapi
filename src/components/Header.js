@@ -17,7 +17,7 @@ import { FiMenu } from "react-icons/fi";
 
 const Header = () => {
   // Accessing to the values of the context provider
-  const { isOpen, setIsOpen } = useContext(CartContext);
+  const { isOpen, setIsOpen, itemsAmount } = useContext(CartContext);
 
   const [catNavMobile, setCatNavMobile] = useState(false);
 
@@ -62,7 +62,7 @@ const Header = () => {
               <SlBag className="text-2xl" />
               {/* Amount */}
               <div className="bg-accent text-primary absolute w-[18px] h-[18px] rounded-full top-3 -right-1 flex justify-center items-center font-bold tracking-[-0.1em]">
-                2
+                {itemsAmount}
               </div>
             </div>
             {/* Cart */}

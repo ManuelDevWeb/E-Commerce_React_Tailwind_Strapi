@@ -15,7 +15,7 @@ const ProductDetails = () => {
   const { id } = useParams();
 
   // Accessing to the value of the context provider
-  // const {} = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   // Get product info base on the id
   const { data } = useFetch(`/products?populate=*&filters[id][$eq]=${id}`);
@@ -56,7 +56,12 @@ const ProductDetails = () => {
               <div className="text-3xl text-accent font-semibold">
                 ${data[0].attributes.price}
               </div>
-              <button className="btn btn-accent">Add to cart</button>
+              <button
+                onClick={() => addToCart(data[0], id)}
+                className="btn btn-accent"
+              >
+                Add to cart
+              </button>
             </div>
           </div>
         </div>
