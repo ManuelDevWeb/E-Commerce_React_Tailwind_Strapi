@@ -6,12 +6,36 @@ import { CartContext } from "../context/CartContext";
 // Components
 import { CartItem } from "./CartItem";
 
+// Axios custom instance
+import { request } from "../request";
+
+// Stripe
+import { loadStripe } from "@stripe/stripe-js";
+
 // Icons
 import { IoArrowForward, IoCartOutline, IoClose } from "react-icons/io5";
 
 const Cart = () => {
   // Accessing to the value of the context provider
   const { setIsOpen, cart, total, clearCart } = useContext(CartContext);
+
+  const handlePayment = async () => {
+    try {
+      // Create stripe promise (Get pk from stripe)
+      const stripe = await loadStripe(
+        "pk_test_51NQcjOHBCSnED7tLSCjoWrEmIuXCVRbODvbY3Ft4VPKMRsAwfoqCQAcy7Scx3E8qdElmgGX4P5l3ynXy771hoZLD00P7JcAakO"
+      );
+      const res = await request.post("/orders", {
+        cart,
+      });
+
+      await stripe.redirectToCheckout({
+        sessionId: res.data.stripeSession.id,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="px-4 text-white">
@@ -54,7 +78,10 @@ const Cart = () => {
             >
               Clear cart
             </button>
-            <button className="btn btn-accent hover:bg-accent-hover text-primary flex-1 px-2 gap-x-2">
+            <button
+              onClick={handlePayment}
+              className="btn btn-accent hover:bg-accent-hover text-primary flex-1 px-2 gap-x-2"
+            >
               Checkout
               <IoArrowForward className="text-lg" />
             </button>
